@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------
+and gate example
+-------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity and_gate_tb is
+
+	Port(
+		a :in std_logic;
+		b :in std_logic;
+		z :out std_logic
+
+	    );
+
+end and_gate_tb;
+
+architecture Behavioral of and_gate_tb is
+		
+signal s_a : std_logic :='0';
+signal s_b : std_logic :='0';
+signal s_z   : std_logic;		
+		
+ begin
+ uut : and_gate Port Map(
+ 
+     a => s_a,
+     b => s_b,
+     z => z
+	);
+	 
+	 process
+		begin 
+			s_a <= '0';
+			s_b <= '0';
+		wait for 50 ns;	
+		
+			s_a <= '0';
+			s_b <= '1';
+		wait for 50 ns;
+
+			s_a <= '1';
+			s_b <= '0';
+		wait for 50 ns;	
+
+			s_a <= '1';
+			s_b <= '1';
+		wait;	
+	
+	end process;
+
+end Behavioral;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
